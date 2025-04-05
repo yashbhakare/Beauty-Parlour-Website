@@ -2,73 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shamal Beauty Hub</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="logo">Shamal Beauty Hub</div>
     <nav>
       <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#videos" class="nav-link">Videos</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section id="home" class="hero">
     <div class="overlay">
       <h1>Be Bold. Be Beautiful.</h1>
       <p>Your transformation begins here</p>
-      <a href="#" class="btn">Book Appointment</a>
+      <a href="#contact" class="btn">Book Appointment</a>
     </div>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
+  <!-- Services -->
+  <section id="services" style="padding: 60px 20px; background-color: #faf3e0;">
+    <h2 style="text-align: center;">Our Services</h2>
+    <div class="cards">
+      <div class="card"><img src="Images/Facial.jpg" alt="Facial" style="width:100%; border-radius: 10px;"><h3>Facials</h3><p>Glowing skin starts with the right care.</p></div>
+      <div class="card"><img src="Images/Hairstyle.jpg" alt="Hair" style="width:100%; border-radius: 10px;"><h3>Hair Styling</h3><p>Trendy, elegant, and uniquely you.</p></div>
+      <div class="card"><img src="Images/Makeup.jpg" alt="Makeup" style="width:100%; border-radius: 10px;"><h3>Makeup</h3><p>Look flawless on your special day.</p></div>
+      <div class="card"><img src="Images/Pedicure.jpg" alt="Pedicure" style="width:100%; border-radius: 10px;"><h3>Pedicure</h3><p>Pamper your feet with luxurious care.</p></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" style="padding: 60px 20px; background-color: #fff5ee;">
+    <h2 style="text-align: center; color: #3e1f47;">Gallery</h2>
+    <div class="cards">
+      <div class="card"><img src="Images/gallery1.jpg" alt="Gallery 1" style="width:100%; border-radius: 10px;"></div>
+      <div class="card"><img src="Images/gallery2.jpg" alt="Gallery 2" style="width:100%; border-radius: 10px;"></div>
+      <div class="card"><img src="Images/gallery3.jpg" alt="Gallery 3" style="width:100%; border-radius: 10px;"></div>
+      <div class="card"><img src="Images/gallery4.jpg" alt="Gallery 4" style="width:100%; border-radius: 10px;"></div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos" style="padding: 60px 20px; background-color: #f9e8e8;">
+    <h2 style="text-align: center; color: #3e1f47;">Our Work in Action</h2>
     <div class="cards">
       <div class="card">
-        <img src="Images/Img1.png" alt="Facial">
-        <h3>Facials</h3>
-        <p>Glowing skin starts with the right care.</p>
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="card">
-        <img src="Images/Img1.png" alt="Hair Styling">
-        <h3>Hair Styling</h3>
-        <p>Trendy, elegant, and uniquely you.</p>
-      </div>
-      <div class="card">
-        <img src="Images/Img1.png" alt="Makeup">
-        <h3>Makeup</h3>
-        <p>Look flawless on your special day.</p>
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <p>Check out our beautiful transformations.</p>
+  <!-- Contact -->
+  <section id="contact" style="background-color: #faf3e0; padding: 60px 20px;">
+    <div style="max-width: 600px; margin: auto; text-align: center;">
+      <h2 style="color: #3e1f47; font-size: 32px; margin-bottom: 10px;">Contact Us</h2>
+      <p style="color: #5f4b66; margin-bottom: 30px;">We'd love to hear from you! Drop your query below.</p>
+
+      <form id="yourFormId" style="text-align: left; background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+        <label>Name *</label>
+        <input id="name" type="text" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px;">
+        <label>Mobile Number *</label>
+        <input id="mobile" type="tel" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px;">
+        <label>Email (optional)</label>
+        <input id="email" type="email" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 25px;">
+        <button type="submit" style="width: 100%; padding: 12px; background-color: #b76e79; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">Submit</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
   </section>
 
-  <section id="videos">
-    <h2>Videos</h2>
-    <p>Watch behind-the-scenes and makeup tutorials.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Call us or visit our studio to glow up!</p>
-  </section>
-
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Shamal Beauty Hub. All rights reserved.</p>
   </footer>
 
+  <!-- Firebase JS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Your Script -->
   <script src="script.js"></script>
+
 </body>
 </html>
