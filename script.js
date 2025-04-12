@@ -1,22 +1,19 @@
-// Firebase Config
+
 const firebaseConfig = {
   apiKey: "AIzaSyAtLVUnBTTYLPQMa6KiIQz17YpK0bfIqFo",
   authDomain: "beautyweb-48bbf.firebaseapp.com",
   databaseURL: "https://beautyweb-48bbf-default-rtdb.firebaseio.com",
   projectId: "beautyweb-48bbf",
-  storageBucket: "beautyweb-48bbf.appspot.com", // this should be .appspot.com not .storage.app
+  storageBucket: "beautyweb-48bbf.appspot.com", 
   messagingSenderId: "610379053247",
   appId: "1:610379053247:web:10787bea02fe54ffd0ee0a",
   measurementId: "G-CLSV34W63M"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Reference
 var contactFormDB = firebase.database().ref("Shamal Beauty Hub");
 
-// Submit listener
 document.getElementById("yourFormId").addEventListener("submit", submitForm);
 
 function submitForm(e) {
